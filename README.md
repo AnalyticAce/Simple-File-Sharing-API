@@ -20,7 +20,6 @@ This project is a simple file sharing API built using FastAPI. It provides endpo
 
 - **Python**
 - **FastAPI**: Web framework for building APIs.
-- **Pickle**: For secure file serialization.
 - **JSON**: For metadata storage.
 
 ## Installation
@@ -141,5 +140,3 @@ This project is licensed under the MIT License. See the `LICENSE` file for detai
 ## Acknowledgments
 
 - FastAPI documentation: https://fastapi.tiangolo.com/
-- Python `pickle` module documentation: https://docs.python.org/3/library/pickle.html
-
