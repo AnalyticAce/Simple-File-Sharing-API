@@ -10,8 +10,11 @@ This project is a simple file sharing API built using FastAPI. It provides endpo
 - **Download Count Tracking**: Monitor how many times each file has been downloaded.
 
 ## Layout
-- Upload Page
+- Upload Page #1
 ![Upload](.github/assets/upload.png)
+
+- Upload Page #2
+![Upload](.github/assets/upload_.png)
 
 - Download Page
 ![Download](.github/assets/download.png)
