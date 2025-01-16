@@ -9,6 +9,13 @@ This project is a simple file sharing API built using FastAPI. It provides endpo
 - **Metadata Retrieval**: Access metadata for all files or a specific file.
 - **Download Count Tracking**: Monitor how many times each file has been downloaded.
 
+## Layout
+- Upload Page
+![Upload](.github/assets/upload.png)
+
+- Download Page
+![Download](.github/assets/download.png)
+
 ## Technologies Used
 
 - **Python**

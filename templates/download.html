@@ -16,23 +16,28 @@
             background-color: #f5f5f5;
             color: #333;
             line-height: 1.6;
+            padding-top: 4rem; /* Add padding for fixed nav */
         }
 
         .container {
             max-width: 1000px;
-            margin: 0 auto;
+            margin: 2rem auto;
             background: white;
             padding: 2rem;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         }
 
-        /* Navigation */
+        /* Fixed Navigation */
         .nav {
             background: white;
             padding: 1rem 2rem;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-            margin-bottom: 2rem;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
         }
 
         .nav-content {
@@ -43,11 +48,6 @@
             align-items: center;
         }
 
-        .header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-        
         .nav-logo {
             color: #2563eb;
             font-size: 1.5rem;
@@ -75,9 +75,7 @@
         .file-info-card {
             background: white;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
             padding: 2rem;
-            margin-bottom: 2rem;
         }
 
         .file-header {
@@ -260,10 +258,6 @@
             border: 1px solid #fecaca;
         }
 
-        .error-icon {
-            font-size: 1.5rem;
-        }
-
         .error-content {
             flex: 1;
         }
@@ -278,13 +272,31 @@
             color: #b91c1c;
         }
 
+        /* Success Message */
+        .success-message {
+            background: #f0fdf4;
+            color: #166534;
+            padding: 1rem;
+            border-radius: 6px;
+            margin-bottom: 1rem;
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid #bbf7d0;
+        }
+
         @media (max-width: 768px) {
+            body {
+                padding-top: 3.5rem;
+            }
+
             .container {
+                margin: 1rem;
                 padding: 1rem;
             }
 
             .nav {
-                padding: 1rem;
+                padding: 0.75rem 1rem;
             }
 
             .file-info-card {
@@ -308,23 +320,10 @@
                 flex-direction: column;
             }
         }
-
-        /* Success Message */
-        .success-message {
-            background: #f0fdf4;
-            color: #166534;
-            padding: 1rem;
-            border-radius: 6px;
-            margin-bottom: 1rem;
-            display: none;
-            align-items: center;
-            gap: 0.5rem;
-            border: 1px solid #bbf7d0;
-        }
     </style>
 </head>
 <body>
-    <!-- Navigation -->
+    <!-- Fixed Navigation -->
     <nav class="nav">
         <div class="nav-content">
             <a href="/" class="nav-logo">FileShare</a>
@@ -337,7 +336,7 @@
     <div class="container">
         {% if error %}
         <div class="error-message">
-            <span class="error-icon">⚠️</span>
+            <span>⚠️</span>
             <div class="error-content">
                 <h3>File Not Found</h3>
                 <p>{{ error }}</p>
@@ -345,6 +344,7 @@
         </div>
         {% else %}
         <div id="fileInfoCard" class="file-info-card">
+            <!-- Rest of the content remains the same... -->
             <div class="file-header">
                 <div class="file-icon">📄</div>
                 <div class="file-title">
@@ -411,6 +411,7 @@
     </div>
 
     <script>
+        // JavaScript remains the same...
         const fileId = "{{ file_id }}";
 
         const fileInfoCard = document.getElementById('fileInfoCard');
@@ -475,7 +476,7 @@
             downloadProgress.style.display = 'block';
             
             try {
-                window.location.href = `/file/download/${fileId}`;
+                window.location.href = `/download/${fileId}`;
 
                 let progress = 0;
                 const interval = setInterval(() => {
@@ -499,6 +500,7 @@
                 showError('Error downloading file. Please try again.');
             }
         });
+        
         if (fileId) {
             loadFileMetadata();
         }

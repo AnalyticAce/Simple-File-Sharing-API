@@ -89,7 +89,7 @@ def upload_file(request: Request, file: UploadFile = File(...)):
         content = file.file.read()
         f.write(content)
 
-    api_download_url = f"{request.base_url}file/download/{file_id}"
+    api_download_url = f"{request.base_url}download/{file_id}"
     download_page_url = f"{request.base_url}download/{file_id}"
     
     file_metadata[file_id] = {
@@ -97,8 +97,8 @@ def upload_file(request: Request, file: UploadFile = File(...)):
         "content_type": file.content_type,
         "file_size": len(content),
         "download_count": 0,
-        "download_link": api_download_url,
-        "download_page": download_page_url
+        "download_page": api_download_url,
+        "download_link": download_page_url
     }
     
     save_metadata()
