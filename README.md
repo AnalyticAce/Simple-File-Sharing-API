@@ -1,13 +1,12 @@
 # Simple-File-Sharing-API
 
-This project is a simple file sharing API built using FastAPI. It provides endpoints to upload, download, and retrieve metadata about files. The uploaded files are stored securely using `pickle` for serialization, and metadata is managed in a JSON file.
+This project is a simple file sharing API built using FastAPI. It provides endpoints to upload, download, and retrieve metadata about files. The uploaded files are stored in a folder, and metadata is managed in a JSON file.
 
 ## Features
 
 - **File Upload**: Upload files to the server with metadata tracking.
 - **File Download**: Securely download files by their unique ID.
 - **Metadata Retrieval**: Access metadata for all files or a specific file.
-- **Secure Storage**: Files are serialized using `pickle` for added security.
 - **Download Count Tracking**: Monitor how many times each file has been downloaded.
 
 ## Technologies Used
@@ -21,8 +20,8 @@ This project is a simple file sharing API built using FastAPI. It provides endpo
 
 1. Clone the repository:
    ```bash
-   git clone <repository_url>
-   cd <repository_folder>
+   git clone https://github.com/AnalyticAce/Simple-File-Sharing-API.git
+   cd Simple-File-Sharing-API
    ```
 
 2. Set up a virtual environment (optional but recommended):
